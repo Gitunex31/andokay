@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authentification-Recharges.com</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    h1 {
+      font-size: 6vw;
+    }
+
+    h2 {
+      font-size: 4vw;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    a {
+      text-decoration: none !important;
+    }
+
+    .hero-section {
+      background-color: powderblue;
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+
+    .accordion-button {
+      font-size: 1.1rem;
+    }
+
+    .accordion-body {
+      font-size: 1rem;
+    }
+
+    .selected-lang {
+      background-color: darkslategrey;
+      border: 1px solid #ccc;
+      padding: 8px 25px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: white;
+    }
+
+    .lang-options {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      margin: 5px 0 0;
+      padding: 0;
+      list-style: none;
+      background-color: darkslategray;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      display: none;
+      z-index: 10;
+    }
+
+    .lang-options li {
+      padding: 0.5rem 1rem;
+      color: white;
+      background-color: transparent;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang-options li:hover {
+      background-color: #4f6367;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .selected-lang, .lang-options li {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="bg-dark text-white py-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+      <nav class="mb-2 mb-md-0">
+        <a class="text-white me-3" href="#">Accueil</a>
+        <a class="text-white me-3" href="#galerie">Galerie</a>
+        <a class="text-white" href="#faq">FAQ</a>
+      </nav>
+      <div class="custom-language-selector position-relative">
+        <div class="selected-lang" onclick="toggleLangMenu()">
+          <img src="https://flagcdn.com/w20/gb.png" alt="EN">
+          <span class="ms-2">English</span>
+        </div>
+        <ul class="lang-options list-unstyled">
+          <li onclick="setLang('en')"><img src="https://flagcdn.com/w20/gb.png" alt="EN"> English</li>
+          <li onclick="setLang('fr')"><img src="https://flagcdn.com/w20/fr.png" alt="FR"> Français</li>
+          <li onclick="setLang('es')"><img src="https://flagcdn.com/w20/es.png" alt="ES"> Español</li>
+          <li onclick="setLang('de')"><img src="https://flagcdn.com/w20/de.png" alt="DE"> Deutsch</li>
+          <li onclick="setLang('it')"><img src="https://flagcdn.com/w20/it.png" alt="IT"> Italiano</li>
+          <li onclick="setLang('pt')"><img src="https://flagcdn.com/w20/pt.png" alt="PT"> Português</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-wrapper">
+    <section class="hero-section text-center">
+      <div class="container">
+        <h1 data-i18n="hero_title">Bienvenue sur Authentification-Recharges.com</h1>
+        <p data-i18n="hero_text">Vérifiez rapidement l’authenticité de vos tickets, cartes ou codes d’achat. Notre système vous informe instantanément si le code a déjà été utilisé ou non.</p>
+        <a href="#galerie" class="btn btn-primary mt-3" data-i18n="hero_link">Découvrir nos offres</a>
+      </div>
+    </section>
+
+    <section id="galerie" class="gallery py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Galerie</h2>
+        <div class="row g-3">
+          <!-- Responsive gallery columns -->
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+            <a href="form.html"><img class="img-fluid rounded shadow" src="img/transcash.png" alt="Transcash"></a>
+          </div>
+          <!-- Répète les colonnes pour chaque image -->
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+            <a href="form.html"><img class="img-fluid rounded shadow" src="img/pcs.png" alt="PCS"></a>
+          </div>
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+            <a href="form.html"><img class="img-fluid rounded shadow" src="img/neosurf.jpg" alt="Neosurf"></a>
+          </div>
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+            <a href="form.html"><img class="img-fluid rounded shadow" src="img/steam.jpg" alt="Steam"></a>
+          </div>
+          <!-- Ajoute les autres images ici -->
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-4">FAQ</h2>
+        <div class="accordion" id="faqAccordion">
+          <!-- Exemple de question -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                <span data-i18n="faq1">Qu'est-ce qu’un ticket de recharge ?</span>
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body fs-5" data-i18n="faq1r">
+                Un ticket prépayé est un code achetable en magasin ou en ligne. Il sert à acheter des biens ou des services. C’est une méthode sécurisée d’achat sans carte bancaire.
+              </div>
+            </div>
+          </div>
+          <!-- Ajoute les autres FAQ -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+      <div class="mb-2">
+        <a href="#galerie" class="text-white me-3">Galerie</a>
+        <a href="#faq" class="text-white me-3">FAQ</a>
+        <a href="#contact" class="text-white">Contact</a>
+      </div>
+      <h3 class="mb-0">&copy; 2025 Authentification-Recharges.com Tous droits réservés.</h3>
+    </div>
+  </footer>
+
+  <script src="bootstrap.bundle.min.js"></script>
+  <script>
+    function toggleLangMenu() {
+      const menu = document.querySelector('.lang-options');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function setLang(lang) {
+      localStorage.setItem('lang', lang);
+      applyTranslations(lang);
+      document.querySelector('.lang-options').style.display = 'none';
+      const flag = document.querySelector(`.lang-options li[onclick="setLang('${lang}')"] img`).src;
+      const label = document.querySelector(`.lang-options li[onclick="setLang('${lang}')"]`).innerText.trim();
+      document.querySelector('.selected-lang img').src = flag;
+      document.querySelector('.selected-lang span').innerText = label;
+    }
+
+    function applyTranslations(lang) {
+      const translations = {
+        en: {
+          hero_title: "Welcome to Authentification-Recharges.com",
+          hero_text: "Quickly verify the authenticity of your tickets, cards or codes. Our system informs you instantly if the code has already been used.",
+          hero_link: "Discover our offers"
+        },
+        fr: {
+          hero_title: "Bienvenue sur Authentification-Recharges.com",
+          hero_text: "Vérifiez rapidement l’authenticité de vos tickets, cartes ou codes d’achat. Notre système vous informe instantanément si le code a déjà été utilisé ou non.",
+          hero_link: "Découvrir nos offres"
+        },
+        // Ajoute d'autres traductions : es, de, pt, it
+      };
+
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerText = translations[lang][key];
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const lang = localStorage.getItem('lang') || 'fr';
+      setLang(lang);
+    });
+  </script>
+</body>
+</html>
